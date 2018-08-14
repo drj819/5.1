@@ -1,0 +1,28 @@
+
+Assignment 5.1 (1)
+
+USArrests          
+names(USArrests)   
+USA_States <- rownames(USArrests) 
+
+USA_States <- paste(USA_States, collapse = "")  
+USA_States
+USA_States <- tolower(strsplit(USA_States, "")[[1]]) 
+USA_States
+USA_States <- USA_States[USA_States %in% letters]
+table(USA_States)     
+distribution <- as.data.frame(table(USA_States)) 
+names(distribution)
+
+
+colnames(distribution) <- c("letters", "Freq")  
+names(distribution)
+library(dplyr)
+filter(distribution, letters %in% c("a","e","i","o","u")) 
+
+(2)
+
+
+vowel_dist <- filter(distribution, letters %in% c("a","e","i","o","u"))
+vowel_dist
+barplot(vowel_dist$Freq, axes = TRUE, axisnames = TRUE, xlab = "Vowels", ylab = "frequency")
